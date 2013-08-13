@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using BookSleeve;
-using ShoppingCartEndpoint;
 using Xunit;
 using Xunit.Should;
 
