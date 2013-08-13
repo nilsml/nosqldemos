@@ -7,7 +7,7 @@ using Xunit.Should;
 
 namespace NoSQLTests
 {
-    public class ShoppingCartTests
+    public class RedisIntegrationTests
     {
         private const int _database = 1;
 
