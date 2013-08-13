@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Remoting.Messaging;
+using System.Threading.Tasks;
 using BookSleeve;
 using ShoppingCartEndpoint;
 using Xunit;
@@ -34,12 +35,34 @@ namespace NoSQLTests
                       });
         }
 
+        [Fact]
+        public async Task should_be_able_to_store_sets_in_the_database()
+        {
+            await WithRedisAsync(async connection =>
+                            {
+                                await connection.Sets.Add(_database, "key:2", "Foo");
+                                await connection.Sets.Add(_database, "key:2", "Bar");
+                                var result = await connection.Sets.GetAllString(_database, "key:2");
+                                result.ShouldContain("Foo");
+                                result.ShouldContain("Bar");
+                            });
+        }
+
         private static void WithRedis(Action<RedisConnection> action)
         {
             using (var conn = new RedisConnection("localhost"))
             {
                 conn.Open();
                 action(conn);
+            }
+        }
+        
+        private async static Task WithRedisAsync(Func<RedisConnection, Task> func)
+        {
+            using (var conn = new RedisConnection("localhost"))
+            {
+                await conn.Open();
+                await func(conn);
             }
         }
     }
