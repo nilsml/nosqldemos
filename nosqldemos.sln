@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "RavenDB\Order.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSQLTests", "NoSQLTests\NoSQLTests.csproj", "{892BB6BC-D32B-421C-8197-83938EC4D6F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderEndpoint", "OrderEndpoint\OrderEndpoint.csproj", "{26373D63-2605-4298-BF3E-7F0963749B01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartEndpoint", "ShoppingCartEndpoint\ShoppingCartEndpoint.csproj", "{43EF20F1-59A7-43DA-AB20-E97826F82EB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart service", "ShoppingCart service", "{60094C27-140D-4602-9A03-EBC7489601AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order service", "Order service", "{CD9B13E2-3BDE-4CC9-B7B2-791FDA25F261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +33,22 @@ Global
 		{892BB6BC-D32B-421C-8197-83938EC4D6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{892BB6BC-D32B-421C-8197-83938EC4D6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{892BB6BC-D32B-421C-8197-83938EC4D6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26373D63-2605-4298-BF3E-7F0963749B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26373D63-2605-4298-BF3E-7F0963749B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26373D63-2605-4298-BF3E-7F0963749B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26373D63-2605-4298-BF3E-7F0963749B01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43EF20F1-59A7-43DA-AB20-E97826F82EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43EF20F1-59A7-43DA-AB20-E97826F82EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43EF20F1-59A7-43DA-AB20-E97826F82EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43EF20F1-59A7-43DA-AB20-E97826F82EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{19A2A973-0418-4081-9329-751F5ACF4582} = {60094C27-140D-4602-9A03-EBC7489601AA}
+		{43EF20F1-59A7-43DA-AB20-E97826F82EB6} = {60094C27-140D-4602-9A03-EBC7489601AA}
+		{5EAB9167-31E2-4C6F-AC64-B1E82E8D99B4} = {CD9B13E2-3BDE-4CC9-B7B2-791FDA25F261}
+		{26373D63-2605-4298-BF3E-7F0963749B01} = {CD9B13E2-3BDE-4CC9-B7B2-791FDA25F261}
 	EndGlobalSection
 EndGlobal
