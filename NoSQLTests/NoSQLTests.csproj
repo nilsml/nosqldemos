@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BookSleeve">
+      <HintPath>..\packages\BookSleeve.1.3.38\lib\BookSleeve.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,10 @@
     <ProjectReference Include="..\Redis\ShoppingCart.csproj">
       <Project>{19A2A973-0418-4081-9329-751F5ACF4582}</Project>
       <Name>ShoppingCart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShoppingCartEndpoint\ShoppingCartEndpoint.csproj">
+      <Project>{43EF20F1-59A7-43DA-AB20-E97826F82EB6}</Project>
+      <Name>ShoppingCartEndpoint</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
