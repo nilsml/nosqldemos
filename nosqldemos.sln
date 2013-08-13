@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis", "Redis\Redis.csproj", "{19A2A973-0418-4081-9329-751F5ACF4582}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart", "Redis\ShoppingCart.csproj", "{19A2A973-0418-4081-9329-751F5ACF4582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenDB", "RavenDB\RavenDB.csproj", "{5EAB9167-31E2-4C6F-AC64-B1E82E8D99B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "RavenDB\Order.csproj", "{5EAB9167-31E2-4C6F-AC64-B1E82E8D99B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSQLTests", "NoSQLTests\NoSQLTests.csproj", "{892BB6BC-D32B-421C-8197-83938EC4D6F4}"
 EndProject
