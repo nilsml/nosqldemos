@@ -8,7 +8,7 @@ namespace NoSQLTests
 {
     public class RedisIntegrationTests
     {
-        private const int _database = 1;
+        private const int Database = 1;
 
         [Fact]
         public void should_connect_to_database()
@@ -19,7 +19,7 @@ namespace NoSQLTests
         [Fact]
         public void should_be_able_to_write_to_the_database()
         {
-            WithRedis(connection => connection.Strings.Set(_database, "key:1", "Some value"));
+            WithRedis(connection => connection.Strings.Set(Database, "key:1", "Some value"));
         }
 
         [Fact]
@@ -27,8 +27,8 @@ namespace NoSQLTests
         {
             WithRedis(connection =>
                       {
-                          connection.Strings.Set(_database, "key:1", "Some other value");
-                          var result = connection.Strings.GetString(_database, "key:1");
+                          connection.Strings.Set(Database, "key:1", "Some other value");
+                          var result = connection.Strings.GetString(Database, "key:1");
                           result.Result.ShouldBe("Some other value");
                       });
         }
@@ -38,9 +38,9 @@ namespace NoSQLTests
         {
             await WithRedisAsync(async connection =>
                             {
-                                await connection.Sets.Add(_database, "key:2", "Foo");
-                                await connection.Sets.Add(_database, "key:2", "Bar");
-                                var result = await connection.Sets.GetAllString(_database, "key:2");
+                                await connection.Sets.Add(Database, "key:2", "Foo");
+                                await connection.Sets.Add(Database, "key:2", "Bar");
+                                var result = await connection.Sets.GetAllString(Database, "key:2");
                                 result.ShouldContain("Foo");
                                 result.ShouldContain("Bar");
                             });

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.Linq;
 using System.Threading;
 using Raven.Client;
@@ -18,7 +19,7 @@ namespace NoSQLTests
         {
             _documentStore = new DocumentStore
                              {
-                                 Url = "http://localhost:8081", 
+                                 Url = "http://localhost:8081",
                                  DefaultDatabase = "IntegrationTests",
                                  Conventions =
                                  {
@@ -36,19 +37,15 @@ namespace NoSQLTests
         [Fact]
         public void should_be_able_to_connect_to_database()
         {
-            
+
         }
 
         [Fact]
         public void should_store_one_element_to_database()
         {
-            var foo = new {Id = FooId, Value = "Some string"};
+            var foo = new { Id = FooId, Value = "Some string" };
 
-            WithRaven(session =>
-                      {
-                          session.Store(foo);
-                          session.SaveChanges();
-                      });
+            WithRaven(session => session.Store(foo));
         }
 
         [Fact]
@@ -56,7 +53,8 @@ namespace NoSQLTests
         {
             WithRaven(session =>
                       {
-                          var foo = session.Advanced.LuceneQuery<dynamic>().FirstOrDefault(document => document.Value == "Some string");
+                          dynamic foo = session.Load<ExpandoObject>(FooId);
+                          //var foo = session.Advanced.LuceneQuery<dynamic>().FirstOrDefault(document => document.Value == "Some string");
                           ((object)foo).ShouldNotBeNull();
                       });
         }
@@ -67,9 +65,8 @@ namespace NoSQLTests
             var id = Guid.NewGuid();
             WithRaven(session =>
                       {
-                          var bar = new Bar {Id = id, Value = "Bar string"};
+                          var bar = new Bar { Id = id, Value = "Bar string" };
                           session.Store(bar);
-                          session.SaveChanges();
                       });
 
             WithRaven(session =>
@@ -84,6 +81,7 @@ namespace NoSQLTests
             using (var session = _documentStore.OpenSession())
             {
                 action(session);
+                session.SaveChanges();
             }
         }
     }

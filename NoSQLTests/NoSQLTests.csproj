@@ -33,6 +33,9 @@
     <Reference Include="BookSleeve">
       <HintPath>..\packages\BookSleeve.1.3.38\lib\BookSleeve.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions-4.5">
       <HintPath>..\packages\RavenDB.Client.2.5.2666\lib\net45\Raven.Abstractions-4.5.dll</HintPath>
     </Reference>
@@ -58,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenIntegrationTests.cs" />
     <Compile Include="RedisIntegrationTests.cs" />
+    <Compile Include="ShoppingCartTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
